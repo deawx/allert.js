@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Allert.js</title>
+    <link rel="stylesheet" href="allert.css" />
+  </head>
+
+  <body>
+    <button class="btn btn-success btn-block">Allert success</button>
+    <button class="btn btn-warning btn-block">Allert warning</button>
+    <button class="btn btn-info btn-block">Allert info</button>
+    <button class="btn btn-danger btn-block">Allert danger</button>
+
+    <script src="allert.js"></script>
+
+    <script>
+      const successButtons = document.getElementsByClassName("btn-success");
+      const warningButtons = document.getElementsByClassName("btn-warning");
+      const infoButtons = document.getElementsByClassName("btn-info");
+      const dangerButtons = document.getElementsByClassName("btn-danger");
+
+      setEvent(successButtons, "success");
+      setEvent(warningButtons, "warning");
+      setEvent(infoButtons, "info");
+      setEvent(dangerButtons, "danger");
+
+      function setEvent(objects, type) {
+        for (const object of objects) {
+          object.addEventListener("click", function () {
+            allert("Allert", {
+              type: type,
+              // icon: "fa fa-check"
+            });
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
